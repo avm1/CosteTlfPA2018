@@ -4,12 +4,13 @@
   <author email="a.vilches@parlamento-and.es">Antonio Vilches</author>
   <content src="index.html"/>
 
-  <platform name="android"></platform>
-
-  <preference name="SplashScreen" value="screen" />
-  <preference name="SplashScreenDelay" value="3000" />
-  <splash src="splash.png" width="640" height="960" />  
-  
+ <platform name="android">  
+    <splash src="splash.png" qualifier="ldpi"/>  
+    <splash src="splash.png" qualifier="mdpi"/>  
+    <splash src="splash.png" qualifier="hdpi"/>  
+    <splash src="splash.png" qualifier="xhdpi"/>  
+    <splash src="splash.png" qualifier="xxhdpi"/>  
+  </platform> 
       
   <preference name="permissions" value="none"/>
   <preference name="phonegap-version" value="cli-6.5.0" />
