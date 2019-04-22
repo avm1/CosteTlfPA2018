@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
+    <title>INFORMACIÓN TRÁFICO</title>
+
+    <link rel="stylesheet" href="./css/estilos.css" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.css" />
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>    
+    
+</head>
+
+<!-- ******************************************************************** -->
+<script type="text/python">
+from browser import document as doc
+from browser import alert, html
+import math 
+
+def echo(*args):     
+    tipo="INFORMACIÓN TRÁFICO (011) - Establecimiento 0.18 euros - 0.18 euros/minuto"
+    p_llamadas=0.18
+    p_segundos=0.003
+
+    llamadas=round(float(doc["input_llamadas"].value))
+    segundos=round(float(doc["input_segundos"].value))
+    
+    t_establecimiento=round(llamadas*p_llamadas,2)
+    t_tiempo=round(segundos*p_segundos,2)
+    total=round(t_establecimiento+t_tiempo,2)
+
+       
+    datos="Número llamadas: " + str(llamadas) + \
+    " - Segundos: " + str(segundos) 
+
+    resultado="Coste de " + str(total) + " euros"
+  
+    doc['zone'].text = ''
+    
+    doc['zone'] <= tipo    
+    doc['zone'] <= html.P("")
+    doc['zone'] <= datos
+    doc['zone'] <= html.P("")
+    doc['zone'] <= resultado
+           
+
+doc["pass"].bind("click", echo)    
+
+</script>
+<!-- ******************************************************************** -->
+
+<body onload="brython()">
+
+<div class="container"><p></p><img class="img2" src="img/anagrama-PA.png"</div>
+<center><font color="black"><h2>INFORMACIÓN TRÁFICO (011)</h2></font></center><p></p>
+<hr style="color: green;" />     
+
+
+<p><input  type="number" min=0  id="input_llamadas" required placeholder="Número llamadas">
+<p><input  type="number" min=0  id="input_segundos" required placeholder="Segundos">
+<button data-theme="b" id="pass">CALCULAR</button>
+
+<table width="100%">
+<td id="zone" style="color: black; text-align: center; background: orange; text-shadow: 0em 0em 0em; border-width:1px; border-style: solid"></td>
+</table>
+
+<script type="text/javascript" src="./js/brython_dist.js"></script>
+</body>
+
+</html>
+
